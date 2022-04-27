@@ -1,0 +1,7 @@
+<%= form_with model: [post, Offer.new] do |form| %>
+
+    Your Offer: <br>
+
+    <%= form.text_area :content, size: "20x5" %>
+    <%= form.submit %>
+<% end %>

@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Posts</h1>
+
+<% if Current.user %>
+  Logged in as: <%=Current.user.email%><br>
+  <%= button_to "Sign Out", logout_path,  method: :delete %>
+  <% else %>
+  <%= link_to "Sign up", sign_up_path %>
+  <%= link_to "Sign In", sign_in_path %>
+<% end %>
+
+<div id="posts">
+  <% @posts.each do |post| %>
+    <%= render post %>
+
+    <p>
+      <%= link_to "Show this post", post %>
+    </p>
+
+    <hr />
+  <% end %>
+</div>
+
+<%= link_to "New post", new_post_path %>
